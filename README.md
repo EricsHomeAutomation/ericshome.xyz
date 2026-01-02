@@ -1,1 +1,0 @@
-# ericshome.xyz
