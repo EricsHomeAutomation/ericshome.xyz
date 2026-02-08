@@ -1,11 +1,194 @@
-<!DOCTYPE html>
+<!--
+Ah. You opened the source.
+
+This was written at an hour I should not legally be allowed near HTML/CSS.
+
+Are there better ways? yes
+Did I use them? no
+Does it work? somehow
+
+It renders.
+DNS still resolves.
+nginx still starts.
+No servers are on fire.
+
+Future me can handle it.
+Present me is going to bed.
+
+We will just agree this was deliberate.
+-->
+
+
+
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CedarGrove</title>
-  </head>
-  <body>
-    If you can see this, the web server is indeed running 🎉
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CedarGrove</title>
+  <meta name="description" content="CedarGrove is online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ericshome.xyz/" />
+  <meta property="og:title" content="CedarGrove" />
+  <meta property="og:description" content="A homelab in the woods 🌲" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/124193744?v=4" />
+  <meta name="theme-color" content="#34d399" />
+
+  <style>
+    :root{
+      --bg:#0b0f0c;
+      --panel:#0f1612;
+      --text:#e7efe8;
+      --muted:#a9b7ad;
+      --green:#34d399;
+      --cyan:#22d3ee;
+      --amber:#fbbf24;
+      --wood:#cd8a5c;
+      --bark:#8b5a3c;
+      --glow:#ffe4a1;
+      --smoke:#7a8b8c;
+      --rust:#e07850;
+      --border: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:1.25rem;
+      background:
+        radial-gradient(1200px 700px at 50% 20%, rgba(52,211,153,.12), transparent 55%),
+        radial-gradient(900px 600px at 10% 80%, rgba(34,211,238,.08), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    .wrap{
+      width:min(920px, 100%);
+      border:1px solid var(--border);
+      background: rgba(15,22,18,.85);
+      border-radius:16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+    }
+    .bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:.75rem 1rem;
+      border-bottom:1px solid var(--border);
+      color:var(--muted);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size:.9rem;
+    }
+    .dots{display:flex; gap:.5rem}
+    .dot{width:10px;height:10px;border-radius:999px;opacity:.9}
+    .dot.r{background:#ff5f57}
+    .dot.y{background:#febc2e}
+    .dot.g{background:#28c840}
+    .content{padding:1.25rem 1.25rem 1.5rem}
+    pre{
+      margin:0;
+      white-space:pre;
+      font-size: clamp(12px, 1.9vw, 16px);
+      line-height:1.15;
+    }
+    .g{color:var(--green)}
+    .c{color:var(--cyan)}
+    .a{color:var(--amber)}
+    .m{color:var(--muted)}
+    .w{color:var(--wood)}
+    .b{color:var(--bark)}
+    .gl{color:var(--glow)}
+    .s{color:var(--smoke);}
+    .r{color:var(--rust)}
+    .info{
+      margin-top:1rem;
+      padding-top:1rem;
+      border-top:1px dashed var(--border);
+      display:grid;
+      gap:.35rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+    .info b{color:var(--text)}
+    a{color:var(--cyan); text-decoration:none; border-bottom:1px dashed rgba(34,211,238,.45)}
+    a:hover{border-bottom-color: rgba(34,211,238,.9)}
+    .smoke{
+      display:block;
+      transform: translateY(25px);
+      line-height:0.1;
+      opacity: 0;
+      animation: smoke 3s ease-in-out infinite;
+      animation-fill-mode: backwards;
+    }
+    .smoke1{ animation-delay: 0.6s; }
+    .smoke2{ animation-delay: 0.3s; }
+    .smoke3{ animation-delay: 0s; }
+    @keyframes smoke {
+      0%{opacity:0;}
+      10%{opacity:1}
+      100%{opacity:0;}
+    }
+    .footer{
+      margin-top:1.25rem;
+      font-size:.9rem;
+      line-height:2;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="bar">
+      <div class="dots">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div id="time">—</div>
+    </div>
+
+    <div class="content">
+<pre aria-label="CedarGrove ASCII art">
+<span class="g">        *              *                  *        </span>
+<span class="g">       /|\            /|\                /|\       </span>
+<span class="g">      /*|*\          /*|*\              /*|*\      </span>
+<span class="g">     /**|**\        /**|**\            /**|**\     </span>
+<span class="g">    /***|***\      /***|***\          /***|***\    </span>
+<span class="g">   /****|****\    /****|****\        /****|****\   </span>
+<span class="g">       |||           |||                |||       </span>
+
+<span class="c">         CedarGrove</span><span class="m"> — a homelab in the woods</span>
+
+<span class="s smoke smoke1">                (           </span>
+<span class="s smoke smoke2">             )             </span>
+<span class="s smoke smoke3">              (</span>
+<span class="b">             </span> <span class="b">_   _._</span><span class="s">       </span>
+<span class="b">             |_|</span><span class="r">-'_~_`-._   </span>
+<span class="b">          _.-'</span><span class="r">-_~_-~_-~-_</span><span class="b">`-._</span>
+<span class="b">      _.-'</span><span class="r">_~-_~-_-~-_~_~-_~-_</span><span class="b">`-._</span>
+<span class="a">     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="w">       |</span><span class="gl">  []  []   []   []  [] </span><span class="w">|</span>
+<span class="w">       |</span>           <span class="gl">__    ___</span>   <span class="w">|</span>
+<span class="w">     ._|</span><span class="gl">  []  []  | .|  [___]</span>  <span class="w">|</span><span class="b">_._._._._._._._._._._._._._._._._.</span>
+<span class="w">     |=|</span><span class="b">________()</span><span class="gl">|__|</span><span class="b">()_______</span><span class="w">|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|</span>
+<span class="g">   ^^^^^^^^^^^^^^^</span> <span class="m">===</span> <span class="g">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="m">                    ===</span>
+<span class="m">                      ===</span>
+<span class="m">                         ===</span>
+<span class="m">                            ===</span>
+
+<span class="m footer">   Tools:</span> <a href="https://tools.ericshome.xyz">tools.ericshome.xyz</a>
+<span class="m footer">   Personal Website:</span> <a href="https://eric.golde.org">eric.golde.org</a>
+<!-- The button exists spiritually but not technically -->
+<!-- JavaScript was immediately vetoed by my remaining brain cells -->
+<!-- <span class="m">Homelab Stats:</span> <a href="#" onclick="showStats();">Show stats</a> -->
+</pre>
+    </div>
+  </div>
+
+  <script>
+    const t = document.getElementById("time");
+    const tick = () => t.textContent = new Date().toLocaleString();
+    tick(); setInterval(tick, 1000);
+  </script>
+</body>
 </html>
